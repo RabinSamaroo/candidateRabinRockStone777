@@ -2,3 +2,4 @@
 {"event_id": "2", "occurred_at": "2026-02-20T12:01:00+00:00", "locker_id": "locker1", "type": "ReservationCreated", "payload": {"compartment_id": "c1", "reservation_id": "r1"}}
 {"event_id": "3", "occurred_at": "2026-02-20T12:02:00+00:00", "locker_id": "locker1", "type": "ParcelDeposited", "payload": {"reservation_id": "r1"}}
 {"event_id": "4", "occurred_at": "2026-02-20T12:03:00+00:00", "locker_id": "locker1", "type": "ParcelPickedUp", "payload": {"reservation_id": "r1"}}
+{"event_id": "101", "occurred_at": "2026-02-21T10:01:00+00:00", "locker_id": "locker1", "type": "ReservationCreated", "payload": {"compartment_id": "c1", "reservation_id": "r1"}}
