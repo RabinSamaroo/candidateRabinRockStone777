@@ -1,4 +1,5 @@
 from fastapi import FastAPI, HTTPException, status
+from fastapi.responses import JSONResponse
 from models import Event, LockerSummary, CompartmentStatus, ReservationStatus
 from event_store import EventStore
 from projection import Projection
@@ -13,16 +14,15 @@ def startup_event():
     events = event_store.load_all()
     projection.rebuild(events)
 
-@app.post("/events", status_code=status.HTTP_202_ACCEPTED)
+
+@app.post("/events")
 def ingest_event(event: Event):
     event_dict = event.model_dump()
-    # Idempotency check
     appended = event_store.append(event_dict)
     if not appended:
-        return {"detail": "Duplicate event"}
-    # Apply event to projection
+        return JSONResponse(content={"detail": "Duplicate event"}, status_code=200)
     projection.apply(event_dict)
-    return {"detail": "Event accepted"}
+    return JSONResponse(content={"detail": "Event accepted"}, status_code=202)
 
 @app.get("/lockers/{locker_id}", response_model=LockerSummary)
 def get_locker_summary(locker_id: str):
