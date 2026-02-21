@@ -14,9 +14,10 @@ class EventStore:
         self.path = Path(path)
         self.seen_ids = set()
         if self.path.exists():
-            for line in self.path.open():
-                event = json.loads(line)
-                self.seen_ids.add(event['event_id'])
+            with self.path.open() as f:
+                for line in f:
+                    event = json.loads(line)
+                    self.seen_ids.add(event['event_id'])
 
     def append(self, event: Dict[str, Any]) -> bool:
         if event['event_id'] in self.seen_ids: # idempotent
@@ -27,6 +28,8 @@ class EventStore:
         return True
 
     def load_all(self) -> List[Dict[str, Any]]:
+        if not self.path.exists():
+            return []
         with self.path.open() as f:
             return [json.loads(line) for line in f]
 
