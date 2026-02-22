@@ -1,8 +1,16 @@
 import pytest
+import os
 from fastapi.testclient import TestClient
 from api import app
 
 client = TestClient(app)
+
+@pytest.fixture(autouse=True)
+def clear_event_log():
+    path = os.path.join(os.path.dirname(__file__), '..', 'events.jsonl')
+    path = os.path.abspath(path)
+    if os.path.exists(path):
+        os.remove(path)
 
 # 1. Requests violating OpenAPI schema must return 422
 @pytest.mark.parametrize("invalid_event", [

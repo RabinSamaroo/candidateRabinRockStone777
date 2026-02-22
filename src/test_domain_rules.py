@@ -1,8 +1,16 @@
 import pytest
 from fastapi.testclient import TestClient
 from api import app
+import os
 
 client = TestClient(app)
+
+@pytest.fixture(autouse=True)
+def clear_event_log():
+    path = os.path.join(os.path.dirname(__file__), '..', 'events.jsonl')
+    path = os.path.abspath(path)
+    if os.path.exists(path):
+        os.remove(path)
 
 # reservation can only exist for an existing compartment
 def test_reservation_only_for_existing_compartment():

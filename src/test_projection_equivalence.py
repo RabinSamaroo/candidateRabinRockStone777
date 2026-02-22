@@ -1,10 +1,19 @@
+
 import pytest
 from fastapi.testclient import TestClient
 from api import app
 from event_store import EventStore
 from projection import Projection
+import os
 
 client = TestClient(app)
+
+@pytest.fixture(autouse=True)
+def clear_event_log():
+    path = os.path.join(os.path.dirname(__file__), '..', 'events.jsonl')
+    path = os.path.abspath(path)
+    if os.path.exists(path):
+        os.remove(path)
 
 def test_projection_equivalence_state_hash():
     # Setup: clear event log and add events
