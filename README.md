@@ -15,8 +15,8 @@ All domain rules, event types, etc are derived from the OpenAPI contract
 1. **Clone the repository**
 
    ```bash
-   git clone <your-repo-url>
-   cd <repo-folder>
+   git clone https://github.com/RabinSamaroo/candidateRabinRockStone777
+   cd candidateRabinRockStone777
    ```
 
 2. **Create and activate a virtual environment**
@@ -28,11 +28,11 @@ All domain rules, event types, etc are derived from the OpenAPI contract
 
 3. **Install dependencies**
    ```bash
-   pip install -r requirements.txt
-   ```
-   Or, if using `pyproject.toml`:
-   ```bash
    pip install fastapi uvicorn pydantic pytest
+   ```
+   Or
+   ```bash
+   uv pip install -r pyproject.toml
    ```
 
 ## Running the API
