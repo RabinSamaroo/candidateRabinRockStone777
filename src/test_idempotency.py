@@ -1,8 +1,8 @@
 import pytest
 import os
 from fastapi.testclient import TestClient
-from api import app
-from models import Event
+from src.api import app
+from src.models import Event
 
 client = TestClient(app)
 

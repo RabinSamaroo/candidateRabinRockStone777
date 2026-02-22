@@ -1,9 +1,9 @@
 
 import pytest
 from fastapi.testclient import TestClient
-from api import app
-from event_store import EventStore
-from projection import Projection
+from src.api import app
+from src.event_store import EventStore
+from src.projection import Projection
 import os
 
 client = TestClient(app)
