@@ -1,7 +1,7 @@
 
 from typing import Dict, Optional, Set
 from dataclasses import dataclass, field
-from models import LockerSummary, CompartmentStatus, ReservationStatus, ReservationStatusEnum, EventType
+from src.models import LockerSummary, CompartmentStatus, ReservationStatus, ReservationStatusEnum, EventType
 import hashlib
 
 @dataclass

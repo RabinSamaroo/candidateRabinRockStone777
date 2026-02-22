@@ -1,8 +1,8 @@
 from fastapi import FastAPI, HTTPException, status
 from fastapi.responses import JSONResponse
-from models import Event, LockerSummary, CompartmentStatus, ReservationStatus
-from event_store import EventStore
-from projection import Projection
+from src.models import Event, LockerSummary, CompartmentStatus, ReservationStatus
+from src.event_store import EventStore
+from src.projection import Projection
 
 app = FastAPI()
 event_store = EventStore('events.jsonl')
