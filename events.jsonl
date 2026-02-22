@@ -1,2 +1,3 @@
-{"event_id": "idemp-1", "occurred_at": "2026-02-21T12:00:00+00:00", "locker_id": "idemp-locker", "type": "CompartmentRegistered", "payload": {"compartment_id": "idemp-c1"}}
-{"event_id": "idemp-2", "occurred_at": "2026-02-21T12:01:00+00:00", "locker_id": "idemp-locker", "type": "CompartmentRegistered", "payload": {"compartment_id": "idemp-c1"}}
+{"event_id": "eq-1", "occurred_at": "2026-02-21T10:00:00Z", "locker_id": "lockerE", "type": "CompartmentRegistered", "payload": {"compartment_id": "cE1"}}
+{"event_id": "eq-2", "occurred_at": "2026-02-21T10:01:00Z", "locker_id": "lockerE", "type": "ReservationCreated", "payload": {"compartment_id": "cE1", "reservation_id": "rE1"}}
+{"event_id": "eq-3", "occurred_at": "2026-02-21T10:02:00Z", "locker_id": "lockerE", "type": "ParcelDeposited", "payload": {"reservation_id": "rE1"}}
