@@ -55,6 +55,12 @@ All domain rules, event types, etc are derived from the OpenAPI contract
 
 ## Running Tests
 
+**NOTE:** `httpx` is required for fastapi test client, if you recieve an error message related to this try:
+
+```bash
+pip install httpx
+```
+
 1. **Clear any previous event log**
    - Tests automatically clear `src/events.jsonl` before each run.
 
